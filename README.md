@@ -1,5 +1,10 @@
 # appicon-cli
 
+[![npm version](https://img.shields.io/npm/v/appicon-cli.svg)](https://www.npmjs.com/package/appicon-cli)
+[![license](https://img.shields.io/github/license/crazyma99/appicon-cli.svg)](https://github.com/crazyma99/appicon-cli/blob/master/LICENSE)
+[![node](https://img.shields.io/node/v/appicon-cli.svg)](https://nodejs.org)
+[![GitHub stars](https://img.shields.io/github/stars/crazyma99/appicon-cli.svg?style=social)](https://github.com/crazyma99/appicon-cli)
+
 > 🔍 Search and download APP icons from Apple App Store, Google Play, and custom servers. Built for [Claude Code](https://claude.com/claude-code) + Figma MCP workflows.
 
 [English](#english) | [中文](#中文)
@@ -89,6 +94,28 @@ appicon download com.tencent.xin --size 512 --output /tmp/icons --json
 
 All commands support `--json` for structured output that Claude Code can parse directly.
 
+### AI IDE Setup
+
+Use the `setup` command to register appicon-cli as a skill/tool in your AI-powered IDE. Supports 8 platforms:
+
+| Platform | Command |
+|----------|---------|
+| Claude Code | `appicon setup claude` |
+| Cursor | `appicon setup cursor` |
+| Windsurf | `appicon setup windsurf` |
+| Antigravity | `appicon setup antigravity` |
+| GitHub Copilot | `appicon setup copilot` |
+| Kiro | `appicon setup kiro` |
+| Codex | `appicon setup codex` |
+| Qoder | `appicon setup qoder` |
+
+```bash
+appicon setup claude     # Configure for Claude Code
+appicon setup --all      # Configure all platforms
+appicon setup            # Interactive selection
+appicon setup --remove   # Remove skill
+```
+
 ### i18n
 
 Help text auto-detects language from system `LANG` environment variable:
@@ -171,6 +198,28 @@ appicon download com.tencent.xin --size 512 --output /tmp/icons --json
 
 所有命令支持 `--json` 输出结构化数据，Claude Code 可直接解析。
 
+### AI IDE 配置
+
+使用 `setup` 命令将 appicon-cli 注册为 AI IDE 的技能/工具。支持 8 个平台：
+
+| 平台 | 命令 |
+|------|------|
+| Claude Code | `appicon setup claude` |
+| Cursor | `appicon setup cursor` |
+| Windsurf | `appicon setup windsurf` |
+| Antigravity | `appicon setup antigravity` |
+| GitHub Copilot | `appicon setup copilot` |
+| Kiro | `appicon setup kiro` |
+| Codex | `appicon setup codex` |
+| Qoder | `appicon setup qoder` |
+
+```bash
+appicon setup claude     # 配置 Claude Code
+appicon setup --all      # 配置所有平台
+appicon setup            # 交互式选择
+appicon setup --remove   # 移除技能
+```
+
 ### 帮助文本国际化
 
 根据系统 `LANG` 环境变量自动检测语言：
@@ -182,7 +231,7 @@ appicon download com.tencent.xin --size 512 --output /tmp/icons --json
 ## Related
 
 - [appicon-server](https://github.com/crazyma99/appicon-server) — Self-hosted icon API server with Web UI
-- [appicon-cli-docs](https://crazyma99.github.io/appicon-cli-docs) — Documentation site
+- [appicon-cli-docs](https://crazyma99.github.io/appicon-cli-docs/) — Documentation site
 
 ## License
 
