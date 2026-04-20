@@ -1,9 +1,8 @@
 # appicon-cli
 
 [![npm version](https://img.shields.io/npm/v/appicon-cli.svg)](https://www.npmjs.com/package/appicon-cli)
-[![license](https://img.shields.io/github/license/crazyma99/appicon-cli.svg)](https://github.com/crazyma99/appicon-cli/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-green)](https://github.com/crazyma99/appicon-cli/blob/master/LICENSE)
 [![node](https://img.shields.io/node/v/appicon-cli.svg)](https://nodejs.org)
-[![npm downloads](https://img.shields.io/npm/dm/appicon-cli.svg)](https://www.npmjs.com/package/appicon-cli)
 [![GitHub stars](https://img.shields.io/github/stars/crazyma99/appicon-cli.svg?style=social)](https://github.com/crazyma99/appicon-cli)
 
 > 🔍 Search and download APP icons from Apple App Store, Google Play, and custom servers. Built for [Claude Code](https://claude.com/claude-code) + Figma MCP workflows.
