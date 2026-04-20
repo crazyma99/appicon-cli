@@ -5,6 +5,7 @@
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
+  /* Dark theme (default) */
   --color-surface-0: #0a0a0c;
   --color-surface-1: #111114;
   --color-surface-2: #1a1a1f;
@@ -25,12 +26,32 @@
   --color-border-hover: #3a3a42;
 }
 
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-surface-0: #f5f5f7;
+  --color-surface-1: #ffffff;
+  --color-surface-2: #f0f0f2;
+  --color-surface-3: #e5e5ea;
+  --color-surface-4: #d1d1d6;
+
+  --color-text-0: #1a1a1f;
+  --color-text-1: #48484a;
+  --color-text-2: #8e8e93;
+
+  --color-accent: #2563eb;
+  --color-accent-hover: #3b82f6;
+
+  --color-border: #d1d1d6;
+  --color-border-hover: #c7c7cc;
+}
+
 body {
   font-family: var(--font-sans);
   background: var(--color-surface-0);
   color: var(--color-text-0);
   margin: 0;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
