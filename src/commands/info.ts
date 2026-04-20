@@ -5,16 +5,17 @@ import { loadConfig } from '../utils/config.js';
 import { formatAppInfo } from '../utils/format.js';
 import type { IconVariant } from '../utils/format.js';
 import { createSpinner } from 'nanospinner';
+import { t } from '../utils/i18n.js';
 
 const STANDARD_SIZES = [64, 128, 256, 512, 1024];
 
 export function registerInfoCommand(program: Command): void {
   program
     .command('info <identifier>')
-    .description('View APP details and icon URLs')
-    .option('-s, --store <store>', 'Store: apple, google, custom')
-    .option('-c, --country <code>', 'Country/region code', 'us')
-    .option('--json', 'Output as JSON')
+    .description(t('info.description'))
+    .option('-s, --store <store>', t('info.store'))
+    .option('-c, --country <code>', t('info.country'), 'us')
+    .option('--json', t('info.json'))
     .action(async (identifier: string, opts: { store?: string; country: string; json?: boolean }) => {
       const config = loadConfig();
       const spinner = opts.json ? null : createSpinner('Looking up app...').start();

@@ -4,19 +4,20 @@ import { detectStore, resolveProviders } from '../providers/registry.js';
 import { loadConfig } from '../utils/config.js';
 import { downloadMultipleSizes } from '../utils/image.js';
 import { createSpinner } from 'nanospinner';
+import { t } from '../utils/i18n.js';
 import path from 'node:path';
 
 export function registerDownloadCommand(program: Command): void {
   program
     .command('download <identifier>')
-    .description('Download APP icon by package name or bundle ID')
-    .option('-s, --store <store>', 'Store: apple, google, custom')
-    .option('--size <size>', 'Icon size in px', '512')
-    .option('--sizes <sizes>', 'Multiple sizes, comma-separated (e.g. "64,128,256,512")')
-    .option('-f, --format <format>', 'Output format: png, jpg, webp', 'png')
-    .option('-o, --output <dir>', 'Output directory', '.')
-    .option('-c, --country <code>', 'Country/region code', 'us')
-    .option('--json', 'Output as JSON')
+    .description(t('download.description'))
+    .option('-s, --store <store>', t('download.store'))
+    .option('--size <size>', t('download.size'), '512')
+    .option('--sizes <sizes>', t('download.sizes'))
+    .option('-f, --format <format>', t('download.format'), 'png')
+    .option('-o, --output <dir>', t('download.output'), '.')
+    .option('-c, --country <code>', t('download.country'), 'us')
+    .option('--json', t('download.json'))
     .action(async (identifier: string, opts: {
       store?: string;
       size: string;

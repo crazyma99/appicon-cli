@@ -1,20 +1,21 @@
 import type { Command } from 'commander';
 import { loadConfig, saveConfig, addSource, removeSource, getConfigPath } from '../utils/config.js';
 import { formatSuccess, formatError } from '../utils/format.js';
+import { t } from '../utils/i18n.js';
 import pc from 'picocolors';
 
 export function registerConfigCommand(program: Command): void {
   const configCmd = program
     .command('config')
-    .description('Manage configuration and custom data sources');
+    .description(t('config.description'));
 
   configCmd
     .command('add-source')
-    .description('Add a custom icon API source')
-    .requiredOption('--name <name>', 'Source name')
-    .requiredOption('--url <url>', 'API base URL')
-    .requiredOption('--key <key>', 'API key')
-    .option('--priority <n>', 'Priority (lower = higher)', '1')
+    .description(t('config.addSource'))
+    .requiredOption('--name <name>', t('config.sourceName'))
+    .requiredOption('--url <url>', t('config.sourceUrl'))
+    .requiredOption('--key <key>', t('config.sourceKey'))
+    .option('--priority <n>', t('config.priority'), '1')
     .action((opts: { name: string; url: string; key: string; priority: string }) => {
       try {
         let config = loadConfig();
@@ -35,8 +36,8 @@ export function registerConfigCommand(program: Command): void {
 
   configCmd
     .command('remove-source')
-    .description('Remove a custom icon API source')
-    .requiredOption('--name <name>', 'Source name')
+    .description(t('config.removeSource'))
+    .requiredOption('--name <name>', t('config.sourceName'))
     .action((opts: { name: string }) => {
       try {
         let config = loadConfig();
@@ -51,7 +52,7 @@ export function registerConfigCommand(program: Command): void {
 
   configCmd
     .command('list-sources')
-    .description('List all configured sources')
+    .description(t('config.listSources'))
     .action(() => {
       const config = loadConfig();
       if (config.sources.length === 0) {
@@ -70,7 +71,7 @@ export function registerConfigCommand(program: Command): void {
 
   configCmd
     .command('set-priority')
-    .description('Set store search priority (comma-separated)')
+    .description(t('config.setPriority'))
     .argument('<order>', 'Priority order, e.g. "custom,apple,google"')
     .action((order: string) => {
       const config = loadConfig();
@@ -81,7 +82,7 @@ export function registerConfigCommand(program: Command): void {
 
   configCmd
     .command('show')
-    .description('Show current configuration')
+    .description(t('config.show'))
     .action(() => {
       const config = loadConfig();
       console.log(`\n  Config file: ${pc.dim(getConfigPath())}\n`);

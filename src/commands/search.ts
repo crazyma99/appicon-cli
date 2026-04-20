@@ -5,15 +5,16 @@ import { loadConfig } from '../utils/config.js';
 import { formatSearchResults } from '../utils/format.js';
 import { Cache } from '../utils/cache.js';
 import { createSpinner } from 'nanospinner';
+import { t } from '../utils/i18n.js';
 
 export function registerSearchCommand(program: Command): void {
   program
     .command('search <keyword>')
-    .description('Search APP icons across stores')
-    .option('-s, --store <store>', 'Store to search: apple, google, custom, all', 'all')
-    .option('-c, --country <code>', 'Country/region code', 'us')
-    .option('-l, --limit <number>', 'Max results per store', '10')
-    .option('--json', 'Output as JSON')
+    .description(t('search.description'))
+    .option('-s, --store <store>', t('search.store'), 'all')
+    .option('-c, --country <code>', t('search.country'), 'us')
+    .option('-l, --limit <number>', t('search.limit'), '10')
+    .option('--json', t('search.json'))
     .action(async (keyword: string, opts: { store: string; country: string; limit: string; json?: boolean }) => {
       const config = loadConfig();
       const cache = new Cache(config.cache.dir, config.cache.ttl);

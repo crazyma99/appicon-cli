@@ -4,6 +4,7 @@ import { resolveProviders } from '../providers/registry.js';
 import { loadConfig } from '../utils/config.js';
 import { downloadMultipleSizes } from '../utils/image.js';
 import { createSpinner } from 'nanospinner';
+import { t } from '../utils/i18n.js';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -16,11 +17,11 @@ interface BatchEntry {
 export function registerBatchCommand(program: Command): void {
   program
     .command('batch <file>')
-    .description('Batch download icons from a JSON or CSV file')
-    .option('-f, --format <format>', 'Output format: png, jpg, webp', 'png')
-    .option('-o, --output <dir>', 'Output directory', '.')
-    .option('-c, --country <code>', 'Country/region code', 'us')
-    .option('--json', 'Output as JSON')
+    .description(t('batch.description'))
+    .option('-f, --format <format>', t('batch.format'), 'png')
+    .option('-o, --output <dir>', t('batch.output'), '.')
+    .option('-c, --country <code>', t('batch.country'), 'us')
+    .option('--json', t('batch.json'))
     .action(async (file: string, opts: { format: string; output: string; country: string; json?: boolean }) => {
       const config = loadConfig();
       const format = opts.format as ImageFormat;

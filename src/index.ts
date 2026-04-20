@@ -4,12 +4,13 @@ import { registerDownloadCommand } from './commands/download.js';
 import { registerInfoCommand } from './commands/info.js';
 import { registerBatchCommand } from './commands/batch.js';
 import { registerConfigCommand } from './commands/config.js';
+import { t } from './utils/i18n.js';
 
 const program = new Command();
 
 program
   .name('appicon')
-  .description('Search and download APP icons from Apple App Store, Google Play, and custom servers')
+  .description(t('program.description'))
   .version('0.1.0');
 
 registerSearchCommand(program);
