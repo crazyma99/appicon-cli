@@ -12,6 +12,5 @@ export default defineConfig({
   banner: {
     js: '#!/usr/bin/env node',
   },
-  external: ['google-play-scraper', 'sharp'],
-  noExternal: ['commander', 'picocolors', 'nanospinner', 'cli-table3'],
+  external: ['google-play-scraper', 'sharp', 'commander', 'picocolors', 'nanospinner', 'cli-table3'],
 });
