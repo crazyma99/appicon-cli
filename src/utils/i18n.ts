@@ -146,6 +146,24 @@ const messages = {
     en: 'Priority (lower = higher)',
     zh: '优先级（数字越小越优先）',
   },
+
+  // setup command
+  'setup.description': {
+    en: 'Configure appicon skill for AI coding assistants',
+    zh: '为 AI 编码助手配置 appicon skill',
+  },
+  'setup.all': {
+    en: 'Install for all supported platforms',
+    zh: '为所有支持的平台安装',
+  },
+  'setup.global': {
+    en: 'Install to home directory (global)',
+    zh: '安装到主目录（全局）',
+  },
+  'setup.remove': {
+    en: 'Remove appicon skill from platform',
+    zh: '从平台移除 appicon skill',
+  },
 } as const;
 
 type MessageKey = keyof typeof messages;
